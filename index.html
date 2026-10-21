@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4efe6">
+    <meta name="description" content="EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat.">
+    <title>EOEX Academy — L'art de devenir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f4efe6;
+        --paper-deep: #ece3d5;
+        --ink: #28251f;
+        --ink-soft: #625b50;
+        --muted: #8b8174;
+        --gold: #a17c4f;
+        --gold-light: #c1a77e;
+        --line: rgba(112, 87, 55, .22);
+        --white: #fffdf9;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", Arial, sans-serif;
+        --page-gutter: clamp(22px, 6vw, 92px);
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      body, button, input, select, textarea { font-family: var(--sans); }
+      button, a { -webkit-tap-highlight-color: transparent; }
+      a { color: inherit; text-decoration: none; }
+      button { color: inherit; }
+      button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 4px;
+      }
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 10px;
+        left: 10px;
+        padding: 10px 14px;
+        transform: translateY(-160%);
+        background: var(--ink);
+        color: var(--white);
+      }
+      .skip-link:focus { transform: translateY(0); }
+      .eyebrow {
+        color: var(--gold);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .24em;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+      .site-header {
+        position: sticky;
+        z-index: 30;
+        top: 0;
+        min-height: 76px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 20px;
+        padding: 0 var(--page-gutter);
+        border-bottom: 1px solid var(--line);
+        background: rgba(244, 239, 230, .92);
+        backdrop-filter: blur(18px);
+      }
+      .wordmark {
+        width: fit-content;
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 17px;
+        letter-spacing: .13em;
+      }
+      .wordmark span {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-family: var(--sans);
+        font-size: 7px;
+        font-weight: 600;
+        letter-spacing: .31em;
+        text-align: center;
+      }
+      .main-nav { display: flex; align-items: center; gap: clamp(13px, 2vw, 27px); }
+      .main-nav a {
+        color: var(--ink-soft);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: .15em;
+        transition: color .2s ease;
+      }
+      .main-nav a:hover, .main-nav a:focus-visible { color: var(--gold); }
+      .header-actions { justify-self: end; display: flex; align-items: center; gap: 14px; }
+      .header-caption { color: var(--muted); font-size: 9px; letter-spacing: .08em; }
+      .language-control { display: flex; align-items: center; gap: 6px; }
+      .language-control label { color: var(--muted); font-size: 7px; font-weight: 700; letter-spacing: .12em; }
+      .language-control select {
+        width: 93px;
+        min-height: 36px;
+        padding: 0 7px;
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        background: rgba(255, 253, 249, .56);
+        color: var(--ink-soft);
+        font-size: 9px;
+        cursor: pointer;
+      }
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        clip-path: inset(50%);
+      }
+      .button {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 0 19px;
+        border: 1px solid var(--ink);
+        border-radius: 2px;
+        background: var(--ink);
+        color: var(--white);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        transition: background .2s ease, color .2s ease, border-color .2s ease;
+        cursor: pointer;
+      }
+      .button:hover { border-color: var(--gold); background: var(--gold); }
+      .button-light { border-color: var(--line); background: transparent; color: var(--ink); }
+      .button-light:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+      .menu-toggle {
+        display: none;
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--line);
+        background: transparent;
+        font-size: 19px;
+        cursor: pointer;
+      }
+
+      .hero {
+        min-height: 630px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(300px, .98fr);
+        align-items: center;
+        gap: clamp(28px, 6vw, 88px);
+        padding: 68px var(--page-gutter) 78px;
+        border-bottom: 1px solid var(--line);
+        background:
+          radial-gradient(ellipse at 79% 46%, rgba(191, 166, 127, .19), transparent 35%),
+          linear-gradient(135deg, rgba(255, 253, 249, .68), transparent 54%);
+      }
+      .hero-copy { position: relative; z-index: 2; max-width: 650px; }
+      .hero-copy .eyebrow { margin: 0 0 22px; }
+      .hero h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(56px, 8.4vw, 112px);
+        font-weight: 400;
+        letter-spacing: -.065em;
+        line-height: .94;
+      }
+      .hero h1 em { color: var(--gold); font-weight: 400; }
+      .hero-lede {
+        max-width: 430px;
+        margin: 24px 0 0;
+        color: var(--ink-soft);
+        font-family: var(--serif);
+        font-size: clamp(17px, 2vw, 21px);
+        font-style: italic;
+        line-height: 1.55;
+      }
+      .hero-note {
+        max-width: 370px;
+        margin: 15px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.8;
+      }
+      .hero-actions { display: flex; align-items: center; gap: 23px; margin-top: 31px; }
+      .text-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink-soft);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+      .text-link span:last-child { color: var(--gold); font-size: 16px; transition: transform .2s; }
+      .text-link:hover span:last-child { transform: translateX(4px); }
+      .hero-art {
+        position: relative;
+        width: min(100%, 495px);
+        aspect-ratio: .91;
+        justify-self: end;
+        padding: 14px;
+        border: 1px solid var(--gold-light);
+        box-shadow: 16px 18px 0 rgba(161, 124, 79, .1);
+      }
+      .hero-art::before, .hero-art::after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        width: 45px;
+        height: 45px;
+        border-color: var(--white);
+        pointer-events: none;
+      }
+      .hero-art::before { top: 26px; left: 26px; border-top: 1px solid; border-left: 1px solid; }
+      .hero-art::after { right: 26px; bottom: 26px; border-right: 1px solid; border-bottom: 1px solid; }
+      .hero-art-image {
+        position: absolute;
+        inset: 14px;
+        background:
+          linear-gradient(180deg, rgba(35, 27, 20, .03), rgba(35, 27, 20, .24)),
+          url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85") center 38% / cover;
+        animation: portrait-drift 18s ease-in-out infinite alternate;
+      }
+      .hero-art-caption {
+        position: absolute;
+        right: 29px;
+        bottom: 30px;
+        left: 29px;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        color: white;
+      }
+      .hero-art-caption strong { font-family: var(--serif); font-size: 18px; font-weight: 400; }
+      .hero-art-caption span { font-size: 8px; letter-spacing: .2em; }
+      @keyframes portrait-drift { from { background-position: 50% 38%; } to { background-position: 53% 43%; } }
+      .intro-band {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 24px;
+        padding: 25px var(--page-gutter);
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 9px;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+      }
+      .intro-band::before, .intro-band::after { content: ""; height: 1px; background: var(--line); }
+      .intro-band span { text-align: center; }
+
+      .catalog-section { padding: 79px 0 55px; scroll-margin-top: 75px; }
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 22px;
+        margin: 0 var(--page-gutter) 28px;
+      }
+      .section-heading h2 {
+        margin: 7px 0 0;
+        font-family: var(--serif);
+        font-size: clamp(31px, 4vw, 48px);
+        font-weight: 400;
+        letter-spacing: -.04em;
+      }
+      .section-description {
+        max-width: 430px;
+        margin: 9px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.7;
+      }
+      .section-tools { display: flex; align-items: center; gap: 17px; }
+      .page-count { min-width: 57px; color: var(--muted); font-size: 9px; letter-spacing: .13em; text-align: center; }
+      .page-count strong { color: var(--ink); font-weight: 600; }
+      .shelf-controls { display: flex; gap: 7px; }
+      .shelf-controls button {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--ink);
+        font-size: 16px;
+        cursor: pointer;
+        transition: border-color .2s, background .2s, color .2s;
+      }
+      .shelf-controls button:hover:not(:disabled) { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+      .shelf-controls button:disabled { opacity: .35; cursor: not-allowed; }
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 34px 20px;
+        padding: 0 var(--page-gutter);
+      }
+      .catalog-card { min-width: 0; }
+      .card-stage {
+        position: relative;
+        aspect-ratio: 3 / 4;
+        perspective: 1300px;
+      }
+      .card-stage:focus-within { z-index: 3; }
+      .card-inner {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(161, 124, 79, .66);
+        background: var(--paper-deep);
+        box-shadow: 0 9px 22px rgba(69, 50, 29, .12);
+        transform-style: preserve-3d;
+        transition: transform .78s cubic-bezier(.2, .72, .25, 1), box-shadow .35s;
+      }
+      .card-stage.is-flipped .card-inner {
+        transform: rotateY(180deg);
+        box-shadow: 0 15px 34px rgba(69, 50, 29, .2);
+      }
+      .card-face {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+      .card-front { background: #d8c9b3; }
+      .cover-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .8s cubic-bezier(.2, .72, .25, 1);
+      }
+      .cover-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity .45s ease;
+      }
+      .cover-video.is-playing { opacity: 1; }
+      .card-stage:hover .cover-image { transform: scale(1.045); }
+      .cover-shade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(33, 27, 21, .46), transparent 30%, rgba(33, 27, 21, .04) 44%, rgba(33, 27, 21, .78));
+      }
+      .cover-frame {
+        position: absolute;
+        inset: 11px;
+        border: 1px solid rgba(255, 250, 239, .66);
+        pointer-events: none;
+      }
+      .cover-meta, .cover-credit {
+        position: absolute;
+        right: 22px;
+        left: 22px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(255, 253, 249, .96);
+        text-shadow: 0 1px 8px rgba(0, 0, 0, .55);
+      }
+      .cover-meta { top: 22px; }
+      .cover-credit { bottom: 20px; }
+      .cover-brand { font-family: var(--serif); font-size: 9px; letter-spacing: .16em; }
+      .cover-mark { color: #f0d4aa; font-family: var(--serif); font-size: 17px; }
+      .cover-credit span { font-size: 8px; letter-spacing: .13em; }
+      .cover-copy {
+        position: absolute;
+        right: 23px;
+        bottom: 55px;
+        left: 23px;
+        z-index: 1;
+        color: white;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, .56);
+      }
+      .cover-category { color: #f0d4aa; font-size: 7px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+      .cover-copy h3 {
+        margin: 7px 0 0;
+        font-family: var(--serif);
+        font-size: clamp(19px, 2.2vw, 27px);
+        font-weight: 400;
+        line-height: 1.05;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+      .cover-copy p { margin: 7px 0 0; color: rgba(255, 253, 249, .88); font-size: 9px; line-height: 1.5; }
+      .flip-hint {
+        position: absolute;
+        right: 22px;
+        bottom: 20px;
+        z-index: 2;
+        padding: 7px 8px;
+        border: 1px solid rgba(255, 253, 249, .45);
+        background: rgba(40, 37, 31, .28);
+        color: white;
+        font-size: 7px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(4px);
+        transition: opacity .2s, transform .2s;
+        cursor: pointer;
+      }
+      .card-stage:hover .flip-hint, .card-stage:focus-within .flip-hint { opacity: 1; transform: translateY(0); }
+      .card-back {
+        display: grid;
+        place-items: center;
+        padding: 31px;
+        transform: rotateY(180deg);
+        background:
+          radial-gradient(ellipse at 50% 42%, rgba(193, 167, 126, .15), transparent 45%),
+          repeating-linear-gradient(45deg, transparent 0 11px, rgba(161, 124, 79, .045) 11px 12px),
+          var(--paper-deep);
+        text-align: center;
+      }
+      .card-back::before, .card-back::after {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba(161, 124, 79, .52);
+        pointer-events: none;
+      }
+      .card-back::after { inset: 17px; border-color: rgba(161, 124, 79, .19); }
+      .back-content { position: relative; z-index: 1; }
+      .back-symbol { color: var(--gold); font-family: var(--serif); font-size: 31px; line-height: 1; }
+      .back-label { margin: 13px 0 0; color: var(--muted); font-size: 7px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+      .back-content h3 { margin: 10px 0 0; font-family: var(--serif); font-size: clamp(18px, 2vw, 24px); font-weight: 400; line-height: 1.12; }
+      .back-rule { width: 37px; height: 1px; margin: 14px auto; background: var(--gold); }
+      .back-content p { margin: 0; color: var(--ink-soft); font-size: 10px; line-height: 1.75; }
+      .back-meta { margin: 16px 0 0; color: var(--muted); font-size: 7px; letter-spacing: .13em; text-transform: uppercase; }
+      .back-actions { display: flex; justify-content: center; gap: 7px; margin-top: 17px; }
+      .back-actions .button { min-height: 33px; padding: 0 12px; font-size: 7px; }
+      .card-face[aria-hidden="true"] { visibility: hidden; }
+      .card-caption { min-height: 48px; padding: 12px 2px 0; }
+      .card-caption p { margin: 0; color: var(--ink-soft); font-family: var(--serif); font-size: 13px; line-height: 1.4; }
+      .empty-message { grid-column: 1 / -1; padding: 36px; border: 1px solid var(--line); color: var(--muted); text-align: center; }
+      .catalog-section + .catalog-section { border-top: 1px solid var(--line); }
+
+      .pathways {
+        margin: 54px var(--page-gutter) 92px;
+        padding: clamp(30px, 5vw, 60px);
+        border: 1px solid var(--line);
+        background: linear-gradient(125deg, rgba(255, 253, 249, .74), rgba(236, 227, 213, .6));
+      }
+      .pathways-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 28px; }
+      .pathways h2 { margin: 9px 0; font-family: var(--serif); font-size: clamp(27px, 4vw, 42px); font-weight: 400; letter-spacing: -.03em; }
+      .pathways p { max-width: 590px; margin: 0; color: var(--ink-soft); font-size: 11px; line-height: 1.8; }
+      .site-footer {
+        padding: 40px var(--page-gutter) 26px;
+        border-top: 1px solid var(--line);
+        background: #eee7dc;
+      }
+      .footer-main { display: flex; justify-content: space-between; align-items: start; gap: 35px; }
+      .footer-brand { font-family: var(--serif); font-size: 17px; letter-spacing: .13em; }
+      .footer-note { margin: 8px 0 0; color: var(--muted); font-size: 10px; }
+      .footer-nav { display: flex; flex-wrap: wrap; gap: 11px 23px; }
+      .footer-nav a { color: var(--ink-soft); font-size: 8px; font-weight: 700; letter-spacing: .13em; }
+      .affiliate-links {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 14px 28px;
+        margin-top: 30px;
+        padding: 21px 0 20px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .affiliate-heading { margin: 0; color: var(--ink); font-family: var(--serif); font-size: 17px; font-weight: 400; }
+      .affiliate-caption { margin: 5px 0 0; color: var(--muted); font-size: 9px; }
+      .affiliate-nav { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+      .affiliate-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--ink-soft);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        transition: color .2s ease;
+      }
+      .affiliate-link:hover { color: var(--gold); }
+      .affiliate-link span { color: var(--muted); font-size: 7px; font-weight: 500; letter-spacing: .08em; }
+      .footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 35px; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: 8px; letter-spacing: .05em; }
+      .registration-view { min-height: calc(100vh - 76px); padding: 66px var(--page-gutter) 84px; }
+      .register-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .register-top .text-link { cursor: pointer; }
+      .register-layout { max-width: 1020px; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(38px, 8vw, 100px); margin: 52px auto 0; }
+      .register-intro { padding-top: 10px; }
+      .register-intro h1 { margin: 13px 0 16px; font-family: var(--serif); font-size: clamp(42px, 6vw, 70px); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+      .register-intro p { max-width: 330px; color: var(--ink-soft); font-size: 11px; line-height: 1.85; }
+      .register-aside { margin-top: 29px; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: 9px; line-height: 1.8; }
+      .registration-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 17px 15px;
+        padding: clamp(23px, 4vw, 38px);
+        border: 1px solid var(--line);
+        background: rgba(255, 253, 249, .62);
+      }
+      .form-field { display: grid; gap: 7px; }
+      .form-field.full { grid-column: 1 / -1; }
+      .form-field label { color: var(--ink-soft); font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      .form-field input, .form-field select, .form-field textarea {
+        width: 100%;
+        min-height: 43px;
+        border: 1px solid var(--line);
+        border-radius: 0;
+        padding: 10px 12px;
+        background: var(--white);
+        color: var(--ink);
+        font-size: 11px;
+      }
+      .form-field textarea { min-height: 86px; resize: vertical; }
+      .form-note { margin: 0; color: var(--muted); font-size: 9px; line-height: 1.7; }
+      .form-result { grid-column: 1 / -1; min-height: 18px; margin: 0; color: var(--ink-soft); font-size: 10px; line-height: 1.6; }
+      .registration-form .button { justify-self: start; }
+      [hidden] { display: none !important; }
+
+      @media (max-width: 1020px) {
+        .site-header { grid-template-columns: 1fr auto; }
+        .main-nav {
+          position: absolute;
+          top: calc(100% + 1px);
+          right: 0;
+          left: 0;
+          display: none;
+          align-items: stretch;
+          padding: 17px var(--page-gutter) 22px;
+          border-bottom: 1px solid var(--line);
+          background: var(--paper);
+        }
+        .main-nav.is-open { display: flex; flex-wrap: wrap; }
+        .main-nav a { padding: 9px 0; }
+        .header-actions { grid-column: 2; grid-row: 1; }
+        .header-caption { display: none; }
+        .language-control label { display: none; }
+        .menu-toggle { display: grid; place-items: center; }
+        .hero { min-height: 570px; }
+        .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+      @media (max-width: 700px) {
+        :root { --page-gutter: 21px; }
+        .site-header { min-height: 68px; gap: 9px; }
+        .header-actions { gap: 8px; }
+        .header-actions .button { min-height: 37px; padding: 0 12px; font-size: 7px; }
+        .main-nav { gap: 10px 20px; }
+        .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 61px; }
+        .hero h1 { font-size: clamp(59px, 15vw, 92px); }
+        .hero-art { width: min(100%, 410px); justify-self: center; }
+        .intro-band { gap: 13px; font-size: 7px; letter-spacing: .08em; }
+        .catalog-section { padding-top: 61px; }
+        .section-heading { align-items: start; margin-bottom: 21px; }
+        .section-description { max-width: 350px; }
+        .section-tools { gap: 8px; }
+        .page-count { min-width: 42px; font-size: 8px; }
+        .shelf-controls { gap: 4px; }
+        .shelf-controls button { width: 32px; height: 32px; }
+        .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+        .cover-meta, .cover-credit { right: 17px; left: 17px; }
+        .cover-copy { right: 17px; left: 17px; }
+        .cover-copy h3 { font-size: clamp(17px, 5vw, 23px); }
+        .cover-copy p { font-size: 8px; }
+        .card-back { padding: 25px; }
+        .back-content p { font-size: 9px; }
+        .flip-hint { right: 16px; bottom: 16px; }
+        .pathways { margin-top: 35px; margin-bottom: 65px; }
+        .pathways-inner { grid-template-columns: 1fr; }
+        .pathways-inner .button { justify-self: start; }
+        .footer-main { flex-direction: column; }
+        .affiliate-links { grid-template-columns: 1fr; gap: 16px; }
+        .registration-view { padding-top: 43px; }
+        .register-layout { grid-template-columns: 1fr; gap: 28px; margin-top: 36px; }
+        .register-intro h1 { font-size: 53px; }
+        .register-aside { margin-top: 18px; }
+      }
+      @media (max-width: 430px) {
+        .header-actions .button { letter-spacing: .08em; }
+        .language-control select { width: 82px; }
+        .section-heading { flex-direction: column; }
+        .section-tools { align-self: stretch; justify-content: space-between; }
+        .card-grid { gap: 20px 10px; }
+        .cover-frame { inset: 8px; }
+        .cover-meta { top: 15px; }
+        .cover-credit { bottom: 14px; }
+        .cover-brand { font-size: 7px; }
+        .cover-mark { font-size: 14px; }
+        .cover-copy { right: 13px; bottom: 43px; left: 13px; }
+        .cover-category { font-size: 6px; }
+        .cover-copy h3 { font-size: 17px; }
+        .cover-copy p { font-size: 7px; }
+        .flip-hint { right: 13px; bottom: 13px; padding: 5px; font-size: 6px; }
+        .card-back { padding: 20px; }
+        .card-back::before { inset: 8px; }
+        .card-back::after { inset: 12px; }
+        .back-symbol { font-size: 23px; }
+        .back-label { margin-top: 7px; font-size: 6px; }
+        .back-content h3 { margin-top: 6px; font-size: 16px; }
+        .back-rule { margin: 9px auto; }
+        .back-content p { font-size: 8px; line-height: 1.55; }
+        .back-meta { margin-top: 9px; font-size: 6px; }
+        .back-actions { margin-top: 10px; }
+        .back-actions .button { min-height: 28px; padding: 0 8px; font-size: 6px; }
+        .registration-form { grid-template-columns: 1fr; }
+        .form-field.full { grid-column: auto; }
+      }
+      @media (max-width: 360px) {
+        :root { --page-gutter: 16px; }
+        .header-actions { gap: 6px; }
+        .language-control select { width: 75px; }
+        .header-actions > .button { min-height: 35px; padding: 0 8px; }
+        .menu-toggle { width: 34px; height: 35px; }
+      }
+      @media (hover: none) {
+        .flip-hint { opacity: 1; transform: none; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          scroll-behavior: auto !important;
+          animation-duration: .01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: .01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Passer au contenu</a>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="EOEX Academy home">EOEX<span>ACADEMY</span></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#showcase">SHOWCASE</a>
+        <a href="#class">CLASS</a>
+        <a href="#course">COURSE</a>
+        <a href="#masterclass">MASTERCLASS</a>
+        <a href="#private">PRIVATE</a>
+        <a href="#library">LIBRARY</a>
+      </nav>
+      <div class="header-actions">
+        <span class="header-caption">Une école pour ce qui vient</span>
+        <div class="language-control">
+          <label for="language-select">LANGUE</label>
+          <select id="language-select" aria-label="Choose language">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="de">Deutsch</option>
+          </select>
+          <span class="visually-hidden" id="language-status" aria-live="polite" role="status"></span>
+        </div>
+        <a class="button" href="#register">S'INSCRIRE <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir la navigation">☰</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div id="home-view">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">EOEX ACADEMY · L'AVENIR SE DESSINE</p>
+            <h1 id="hero-title">L'art de<br><em>devenir.</em></h1>
+            <p class="hero-lede">Une formation exigeante autour de la mode, de l'image et des métiers du mannequinat.</p>
+            <p class="hero-note">Affinez votre pratique. Trouvez votre regard. Construisez un parcours à votre image.</p>
+            <div class="hero-actions">
+              <a class="button" href="#showcase">DÉCOUVRIR L'ACADÉMIE <span aria-hidden="true">→</span></a>
+              <a class="text-link" href="#course">Découvrir les parcours <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="hero-art" role="img" aria-label="Portrait éditorial pour présenter EOEX Academy">
+            <div class="hero-art-image"></div>
+            <div class="hero-art-caption"><strong>La présence, en pratique.</strong><span>01 — 06</span></div>
+          </div>
+        </section>
+        <div class="intro-band"><span>Pratiquer avec intention</span><span>Apprendre autrement, avec exigence</span><span>Par EOEX</span></div>
+
+        <div id="catalogue"></div>
+
+        <section class="pathways" aria-labelledby="pathways-title">
+          <div class="pathways-inner">
+            <div>
+              <span class="eyebrow">VOTRE PROCHAIN CHAPITRE</span>
+              <h2 id="pathways-title">Un parcours à votre image.</h2>
+              <p>Premier pas ou pratique déjà affirmée : trouvez une expérience d'apprentissage pensée autour de vos ambitions.</p>
+            </div>
+            <a class="button" href="#register">TROUVER MON PARCOURS <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+      </div>
+
+      <section class="registration-view" id="registration-view" aria-labelledby="register-title" hidden>
+        <div class="register-top">
+          <a class="text-link" href="#top"><span aria-hidden="true">←</span><span>RETOUR À L'ACADÉMIE</span></a>
+          <span class="eyebrow">EOEX ACADEMY · INSCRIPTION</span>
+        </div>
+        <div class="register-layout">
+          <div class="register-intro">
+            <span class="eyebrow">COMMENÇONS ICI</span>
+            <h1 id="register-title">Votre prochain<br>chapitre.</h1>
+            <p>Parlez-nous un peu de vous et de ce que vous souhaitez explorer. Nous vous aiderons à trouver le bon point de départ.</p>
+            <div class="register-aside">Un premier pas, en toute liberté.<br>Vos informations restent confidentielles et servent uniquement à répondre à votre demande.</div>
+          </div>
+          <form class="registration-form" id="registration-form">
+            <div class="form-field">
+              <label for="full-name">Nom complet</label>
+              <input id="full-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Adresse e-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="country">Pays / région</label>
+              <input id="country" name="country" autocomplete="country-name" required>
+            </div>
+            <div class="form-field">
+              <label for="age-range">Tranche d'âge</label>
+              <select id="age-range" name="ageRange" required>
+                <option value="">Choisir une tranche d'âge</option>
+                <option>Moins de 18 ans</option>
+                <option>18–24 ans</option>
+                <option>25–34 ans</option>
+                <option>35–44 ans</option>
+                <option>45 ans et plus</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="pathway">Ce qui m'intéresse</label>
+              <select id="pathway" name="pathway" required>
+                <option value="">Choisir un parcours</option>
+                <option value="showcase">Vitrine</option>
+                <option value="class">Cours</option>
+                <option value="course">Formation</option>
+                <option value="masterclass">Masterclass</option>
+                <option value="private">Cours particuliers</option>
+                <option value="library">Abonnement à la bibliothèque</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="selection">Thème / sélection</label>
+              <select id="selection" name="selection" required disabled>
+                <option value="">Choisissez d'abord un parcours</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="message">Quel est votre objectif ? <span>(facultatif)</span></label>
+              <textarea id="message" name="message" placeholder="Parlez-nous un peu de vos objectifs…"></textarea>
+            </div>
+            <p class="form-note full">Ce formulaire de démonstration n'est pas connecté à un service d'inscription. Vos informations ne sont ni envoyées ni enregistrées.</p>
+            <p class="form-result" id="form-result" aria-live="polite" role="status"></p>
+            <button class="button" type="submit">PRÉPARER MA DEMANDE <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer-main">
+        <div><a class="footer-brand" href="#top">EOEX ACADEMY</a><p class="footer-note">Apprendre autrement, avec exigence.</p></div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#showcase">SHOWCASE</a><a href="#class">CLASS</a><a href="#course">COURSE</a>
+          <a href="#masterclass">MASTERCLASS</a><a href="#private">PRIVATE</a><a href="#library">LIBRARY</a>
+          <a href="#register">S'INSCRIRE ↗</a>
+        </nav>
+      </div>
+      <section class="affiliate-links" aria-labelledby="affiliate-title">
+        <div>
+          <h2 class="affiliate-heading" id="affiliate-title">L'univers EOEX</h2>
+          <p class="affiliate-caption">Découvrez les autres maisons EOEX.</p>
+        </div>
+        <nav class="affiliate-nav" aria-label="Sites partenaires EOEX">
+          <a class="affiliate-link" href="https://eoextrainer.github.io/eoexagency/" target="_blank" rel="noopener noreferrer"><span data-no-translate>EOEX AGENCY</span> <span aria-hidden="true">↗</span></a>
+          <a class="affiliate-link" href="https://eoextrainer.github.io/eoexmagazines/" target="_blank" rel="noopener noreferrer"><span data-no-translate>CARTESIENES</span> <span aria-hidden="true">↗</span></a>
+          <a class="affiliate-link" href="https://eoexpublishing.fr/" target="_blank" rel="noopener noreferrer"><span data-no-translate>EOEX PUBLISHING</span> <span aria-hidden="true">↗</span></a>
+        </nav>
+      </section>
+      <div class="footer-bottom"><span>© <span id="year"></span> EOEX ACADEMY</span><span>PAR EOEX · APPRENDRE AVEC INTENTION</span></div>
+    </footer>
+
+    <script src="./locale-data.js"></script>
+    <script src="./catalogue-data.js"></script>
+    <script>
+      const localeSelect = document.querySelector("#language-select");
+      const languageStatus = document.querySelector("#language-status");
+      const supportedLocales = ["fr", "en", "es", "it", "pt", "de"];
+      const textOriginals = new WeakMap();
+      const attributeOriginals = new WeakMap();
+      const localeDictionary = window.EOEX_TRANSLATIONS;
+      const frenchToEnglish = new Map(
+        Object.entries(localeDictionary.fr || {}).map(([english, french]) => [french, english])
+      );
+      const frenchOverrides = {
+        en: {
+          "EOEX Academy — L'art de devenir": "EOEX Academy — The Art of Becoming",
+          "L'art de": "The art of",
+          "devenir.": "becoming.",
+          "Une formation exigeante autour de la mode, de l'image et des métiers du mannequinat.": "A rigorous education in fashion, image-making and the modeling profession.",
+          "Affinez votre pratique. Trouvez votre regard. Construisez un parcours à votre image.": "Refine your practice. Find your point of view. Build a path that feels like your own.",
+          "Un parcours à votre image.": "A path shaped around you.",
+          "Premier pas ou pratique déjà affirmée : trouvez une expérience d'apprentissage pensée autour de vos ambitions.": "Whether you are taking your first steps or refining an established practice, find a learning experience shaped around your ambitions.",
+          "COMMENÇONS ICI": "LET'S BEGIN HERE",
+          "Parlez-nous un peu de vous et de ce que vous souhaitez explorer. Nous vous aiderons à trouver le bon point de départ.": "Tell us a little about yourself and what you'd like to explore. We'll help you find the right place to begin.",
+          "Ce formulaire de démonstration n'est pas connecté à un service d'inscription. Vos informations ne sont ni envoyées ni enregistrées.": "This demo form is not connected to a registration service. Your information will not be sent or stored.",
+          "Découvrez les autres maisons EOEX.": "Discover our other houses.",
+          "EOEX ACADEMY · L'AVENIR SE DESSINE": "EOEX ACADEMY · THE FUTURE TAKES SHAPE",
+          "DÉCOUVRIR L'ACADÉMIE": "EXPLORE THE ACADEMY",
+          "DÉCOUVRIR LES PARCOURS": "EXPLORE PATHWAYS",
+          "Découvrir les parcours": "Discover pathways",
+          "APPRENDRE AUTREMENT, AVEC EXIGENCE": "LEARN DIFFERENTLY, WITH INTENTION",
+          "Apprendre autrement, avec exigence.": "Independent learning, with intention.",
+          "TROUVER MON PARCOURS": "FIND MY PATH",
+          "S'INSCRIRE": "ENQUIRE",
+          "S'INSCRIRE ↗": "ENQUIRE ↗",
+          "Un premier pas, en toute liberté.": "A first step, on your own terms.",
+          "Vos informations restent confidentielles et servent uniquement à répondre à votre demande.": "Your information remains private and will only be used to respond to your enquiry.",
+          "Pays / région": "Country / region",
+          "Choisir une tranche d'âge": "Choose an age range",
+          "Moins de 18 ans": "Under 18",
+          "18–24 ans": "18–24",
+          "25–34 ans": "25–34",
+          "35–44 ans": "35–44",
+          "45 ans et plus": "45 and over",
+          "Choisir un parcours": "Choose a pathway",
+          "Choisissez d'abord un parcours": "Choose a pathway first",
+          "Choisir un thème ou un titre": "Choose a topic or title",
+          "Ce qui m'intéresse": "I'm interested in",
+          "Quel est votre objectif ?": "What would you like to achieve?",
+          "Parlez-nous un peu de vos objectifs…": "Tell us a little about your goals…",
+          "RETOUR À L'ACADÉMIE": "BACK TO THE ACADEMY",
+          "EOEX ACADEMY · INSCRIPTION": "EOEX ACADEMY · ENQUIRY",
+          "Sites partenaires EOEX": "EOEX affiliate websites",
+          "Portrait éditorial pour présenter EOEX Academy": "Editorial portrait introducing EOEX Academy",
+          "EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat.": "EOEX Academy — an independent school for fashion, image-making and the modeling profession."
+        },
+        es: {
+          "EOEX Academy — L'art de devenir": "EOEX Academy — El arte de convertirse",
+          "L'art de": "El arte de",
+          "devenir.": "convertirse.",
+          "Une formation exigeante autour de la mode, de l'image et des métiers du mannequinat.": "Una formación rigurosa en moda, imagen y profesión del modelaje.",
+          "Affinez votre pratique. Trouvez votre regard. Construisez un parcours à votre image.": "Perfecciona tu práctica. Encuentra tu mirada. Construye un camino a tu medida.",
+          "Un parcours à votre image.": "Un camino a tu medida.",
+          "Premier pas ou pratique déjà affirmée : trouvez une expérience d'apprentissage pensée autour de vos ambitions.": "Tanto si estás empezando como si quieres perfeccionar una práctica consolidada, encuentra una experiencia de aprendizaje diseñada en torno a tus ambiciones.",
+          "COMMENÇONS ICI": "EMPECEMOS AQUÍ",
+          "Parlez-nous un peu de vous et de ce que vous souhaitez explorer. Nous vous aiderons à trouver le bon point de départ.": "Cuéntanos un poco sobre ti y lo que te gustaría explorar. Te ayudaremos a encontrar el mejor punto de partida.",
+          "Ce formulaire de démonstration n'est pas connecté à un service d'inscription. Vos informations ne sont ni envoyées ni enregistrées.": "Este formulario de demostración no está conectado a un servicio de inscripción. Tu información no se enviará ni se almacenará.",
+          "Découvrez les autres maisons EOEX.": "Descubre nuestras otras casas.",
+          "EOEX ACADEMY · L'AVENIR SE DESSINE": "EOEX ACADEMY · EL FUTURO TOMA FORMA",
+          "DÉCOUVRIR L'ACADÉMIE": "DESCUBRE LA ACADEMIA",
+          "DÉCOUVRIR LES PARCOURS": "DESCUBRE LOS ITINERARIOS",
+          "Découvrir les parcours": "Descubre los itinerarios",
+          "Votre prochain": "Tu próximo",
+          "APPRENDRE AUTREMENT, AVEC EXIGENCE": "APRENDER DE OTRA MANERA, CON EXIGENCIA",
+          "Apprendre autrement, avec exigence.": "Aprendizaje independiente, con intención.",
+          "TROUVER MON PARCOURS": "ENCUENTRA MI CAMINO",
+          "S'INSCRIRE": "CONSULTAR",
+          "S'INSCRIRE ↗": "CONSULTAR ↗",
+          "Un premier pas, en toute liberté.": "Un primer paso, a tu manera.",
+          "Vos informations restent confidentielles et servent uniquement à répondre à votre demande.": "Tu información es confidencial y solo se utilizará para responder a tu consulta.",
+          "Pays / région": "País / región",
+          "Choisir une tranche d'âge": "Elige un rango de edad",
+          "Moins de 18 ans": "Menos de 18",
+          "18–24 ans": "18–24",
+          "25–34 ans": "25–34",
+          "35–44 ans": "35–44",
+          "45 ans et plus": "45 o más",
+          "Choisir un parcours": "Elige un itinerario",
+          "Choisissez d'abord un parcours": "Elige primero un itinerario",
+          "Choisir un thème ou un titre": "Elige un tema o título",
+          "Ce qui m'intéresse": "Me interesa",
+          "Quel est votre objectif ?": "¿Qué te gustaría conseguir?",
+          "Parlez-nous un peu de vos objectifs…": "Cuéntanos un poco tus objetivos…",
+          "RETOUR À L'ACADÉMIE": "VOLVER A LA ACADEMIA",
+          "EOEX ACADEMY · INSCRIPTION": "EOEX ACADEMY · CONSULTA",
+          "Sites partenaires EOEX": "Webs afiliadas de EOEX",
+          "Portrait éditorial pour présenter EOEX Academy": "Retrato editorial de presentación de EOEX Academy",
+          "EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat.": "EOEX Academy — una escuela independiente dedicada a la moda, la imagen y la profesión del modelaje."
+        },
+        it: {
+          "EOEX Academy — L'art de devenir": "EOEX Academy — L'arte di diventare",
+          "L'art de": "L'arte di",
+          "devenir.": "diventare.",
+          "Une formation exigeante autour de la mode, de l'image et des métiers du mannequinat.": "Una formazione rigorosa dedicata alla moda, all'immagine e alla professione di modello.",
+          "Affinez votre pratique. Trouvez votre regard. Construisez un parcours à votre image.": "Affina la tua pratica. Trova il tuo sguardo. Costruisci un percorso su misura per te.",
+          "Un parcours à votre image.": "Un percorso su misura per te.",
+          "Premier pas ou pratique déjà affirmée : trouvez une expérience d'apprentissage pensée autour de vos ambitions.": "Che tu stia muovendo i primi passi o perfezionando una pratica consolidata, trova un'esperienza formativa pensata per le tue ambizioni.",
+          "COMMENÇONS ICI": "INIZIAMO QUI",
+          "Parlez-nous un peu de vous et de ce que vous souhaitez explorer. Nous vous aiderons à trouver le bon point de départ.": "Raccontaci qualcosa di te e di ciò che vorresti esplorare. Ti aiuteremo a trovare il punto di partenza giusto.",
+          "Ce formulaire de démonstration n'est pas connecté à un service d'inscription. Vos informations ne sont ni envoyées ni enregistrées.": "Questo modulo dimostrativo non è collegato a un servizio di iscrizione. Le tue informazioni non saranno inviate né salvate.",
+          "Découvrez les autres maisons EOEX.": "Scopri gli altri brand EOEX.",
+          "EOEX ACADEMY · L'AVENIR SE DESSINE": "EOEX ACADEMY · IL FUTURO PRENDE FORMA",
+          "DÉCOUVRIR L'ACADÉMIE": "SCOPRI L'ACCADEMIA",
+          "DÉCOUVRIR LES PARCOURS": "SCOPRI I PERCORSI",
+          "Découvrir les parcours": "Scopri i percorsi",
+          "APPRENDRE AUTREMENT, AVEC EXIGENCE": "IMPARARE IN MODO DIVERSO, CON CURA",
+          "Apprendre autrement, avec exigence.": "Un apprendimento indipendente, con intenzione.",
+          "TROUVER MON PARCOURS": "TROVA IL MIO PERCORSO",
+          "S'INSCRIRE": "INFORMAZIONI",
+          "S'INSCRIRE ↗": "INFORMAZIONI ↗",
+          "Un premier pas, en toute liberté.": "Un primo passo, alle tue condizioni.",
+          "Vos informations restent confidentielles et servent uniquement à répondre à votre demande.": "Le tue informazioni resteranno riservate e saranno usate solo per rispondere alla tua richiesta.",
+          "Pays / région": "Paese / regione",
+          "Choisir une tranche d'âge": "Scegli una fascia d'età",
+          "Moins de 18 ans": "Meno di 18",
+          "18–24 ans": "18–24",
+          "25–34 ans": "25–34",
+          "35–44 ans": "35–44",
+          "45 ans et plus": "45 e oltre",
+          "Choisir un parcours": "Scegli un percorso",
+          "Choisissez d'abord un parcours": "Scegli prima un percorso",
+          "Choisir un thème ou un titre": "Scegli un tema o un titolo",
+          "Ce qui m'intéresse": "Mi interessa",
+          "Quel est votre objectif ?": "Cosa vorresti raggiungere?",
+          "Parlez-nous un peu de vos objectifs…": "Raccontaci qualcosa dei tuoi obiettivi…",
+          "RETOUR À L'ACADÉMIE": "TORNA ALL'ACCADEMIA",
+          "EOEX ACADEMY · INSCRIPTION": "EOEX ACADEMY · RICHIESTA",
+          "Sites partenaires EOEX": "Siti affiliati EOEX",
+          "Portrait éditorial pour présenter EOEX Academy": "Ritratto editoriale di presentazione di EOEX Academy",
+          "EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat.": "EOEX Academy — una scuola indipendente dedicata alla moda, all'immagine e alla professione di modello."
+        },
+        pt: {
+          "EOEX Academy — L'art de devenir": "EOEX Academy — A arte de se tornar",
+          "L'art de": "A arte de",
+          "devenir.": "se tornar.",
+          "Une formation exigeante autour de la mode, de l'image et des métiers du mannequinat.": "Uma formação exigente em moda, imagem e na profissão de modelo.",
+          "Affinez votre pratique. Trouvez votre regard. Construisez un parcours à votre image.": "Aprimore sua prática. Encontre seu olhar. Construa um percurso à sua maneira.",
+          "Un parcours à votre image.": "Um percurso à sua medida.",
+          "Premier pas ou pratique déjà affirmée : trouvez une expérience d'apprentissage pensée autour de vos ambitions.": "Quer esteja a dar os primeiros passos ou a aperfeiçoar uma prática consolidada, encontre uma experiência de aprendizagem pensada para as suas ambições.",
+          "COMMENÇONS ICI": "VAMOS COMEÇAR AQUI",
+          "Parlez-nous un peu de vous et de ce que vous souhaitez explorer. Nous vous aiderons à trouver le bon point de départ.": "Conte-nos um pouco sobre si e o que gostaria de explorar. Vamos ajudar a encontrar o ponto de partida ideal.",
+          "Ce formulaire de démonstration n'est pas connecté à un service d'inscription. Vos informations ne sont ni envoyées ni enregistrées.": "Este formulário de demonstração não está ligado a um serviço de inscrição. As suas informações não serão enviadas nem armazenadas.",
+          "Découvrez les autres maisons EOEX.": "Descubra as outras marcas EOEX.",
+          "EOEX ACADEMY · L'AVENIR SE DESSINE": "EOEX ACADEMY · O FUTURO GANHA FORMA",
+          "DÉCOUVRIR L'ACADÉMIE": "CONHEÇA A ACADEMIA",
+          "DÉCOUVRIR LES PARCOURS": "CONHEÇA OS PERCURSOS",
+          "Découvrir les parcours": "Conheça os percursos",
+          "APPRENDRE AUTREMENT, AVEC EXIGENCE": "APRENDER DE FORMA DIFERENTE, COM INTENÇÃO",
+          "Apprendre autrement, avec exigence.": "Aprendizagem independente, com intenção.",
+          "TROUVER MON PARCOURS": "ENCONTRE O MEU PERCURSO",
+          "S'INSCRIRE": "CONSULTAR",
+          "S'INSCRIRE ↗": "CONSULTAR ↗",
+          "Un premier pas, en toute liberté.": "Um primeiro passo, ao seu ritmo.",
+          "Vos informations restent confidentielles et servent uniquement à répondre à votre demande.": "As suas informações são confidenciais e serão usadas apenas para responder ao seu pedido.",
+          "Pays / région": "País / região",
+          "Choisir une tranche d'âge": "Escolha uma faixa etária",
+          "Moins de 18 ans": "Menos de 18",
+          "18–24 ans": "18–24",
+          "25–34 ans": "25–34",
+          "35–44 ans": "35–44",
+          "45 ans et plus": "45 ou mais",
+          "Choisir un parcours": "Escolha um percurso",
+          "Choisissez d'abord un parcours": "Escolha primeiro um percurso",
+          "Choisir un thème ou un titre": "Escolha um tema ou título",
+          "Ce qui m'intéresse": "Tenho interesse em",
+          "Quel est votre objectif ?": "O que gostaria de alcançar?",
+          "Parlez-nous un peu de vos objectifs…": "Conte-nos um pouco sobre os seus objetivos…",
+          "RETOUR À L'ACADÉMIE": "VOLTAR À ACADEMIA",
+          "EOEX ACADEMY · INSCRIPTION": "EOEX ACADEMY · PEDIDO",
+          "Sites partenaires EOEX": "Sites afiliados EOEX",
+          "Portrait éditorial pour présenter EOEX Academy": "Retrato editorial de apresentação da EOEX Academy",
+          "EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat.": "EOEX Academy — uma escola independente dedicada à moda, à imagem e à profissão de modelo."
+        },
+        de: {
+          "EOEX Academy — L'art de devenir": "EOEX Academy — Die Kunst des Werdens",
+          "L'art de": "Die Kunst des",
+          "devenir.": "Werdens.",
+          "Une formation exigeante autour de la mode, de l'image et des métiers du mannequinat.": "Eine anspruchsvolle Ausbildung in Mode, Bildgestaltung und den Berufen des Modelns.",
+          "Affinez votre pratique. Trouvez votre regard. Construisez un parcours à votre image.": "Verfeinern Sie Ihre Praxis. Finden Sie Ihren eigenen Blick. Gestalten Sie einen Weg, der zu Ihnen passt.",
+          "Un parcours à votre image.": "Ein Weg, der zu Ihnen passt.",
+          "Premier pas ou pratique déjà affirmée : trouvez une expérience d'apprentissage pensée autour de vos ambitions.": "Ob Sie erste Schritte machen oder Ihre etablierte Praxis verfeinern möchten – finden Sie ein Lernerlebnis, das auf Ihre Ziele zugeschnitten ist.",
+          "COMMENÇONS ICI": "HIER BEGINNEN",
+          "Parlez-nous un peu de vous et de ce que vous souhaitez explorer. Nous vous aiderons à trouver le bon point de départ.": "Erzählen Sie uns ein wenig über sich und darüber, was Sie erkunden möchten. Wir helfen Ihnen, den passenden Einstieg zu finden.",
+          "Ce formulaire de démonstration n'est pas connecté à un service d'inscription. Vos informations ne sont ni envoyées ni enregistrées.": "Dieses Demo-Formular ist nicht mit einem Anmeldedienst verbunden. Ihre Angaben werden weder versendet noch gespeichert.",
+          "Découvrez les autres maisons EOEX.": "Entdecken Sie unsere weiteren Marken.",
+          "EOEX ACADEMY · L'AVENIR SE DESSINE": "EOEX ACADEMY · DIE ZUKUNFT NIMMT GESTALT AN",
+          "DÉCOUVRIR L'ACADÉMIE": "DIE AKADEMIE ENTDECKEN",
+          "DÉCOUVRIR LES PARCOURS": "LERNWEGE ENTDECKEN",
+          "Découvrir les parcours": "Lernwege entdecken",
+          "Votre prochain": "Ihr nächstes",
+          "APPRENDRE AUTREMENT, AVEC EXIGENCE": "ANDERS LERNEN, MIT ANSPRUCH",
+          "Apprendre autrement, avec exigence.": "Eigenständig lernen, mit Anspruch.",
+          "TROUVER MON PARCOURS": "MEINEN WEG FINDEN",
+          "S'INSCRIRE": "ANFRAGEN",
+          "S'INSCRIRE ↗": "ANFRAGEN ↗",
+          "Un premier pas, en toute liberté.": "Ein erster Schritt – ganz unverbindlich.",
+          "Vos informations restent confidentielles et servent uniquement à répondre à votre demande.": "Ihre Angaben bleiben vertraulich und werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet.",
+          "Pays / région": "Land / Region",
+          "Choisir une tranche d'âge": "Altersgruppe auswählen",
+          "Moins de 18 ans": "Unter 18",
+          "18–24 ans": "18–24",
+          "25–34 ans": "25–34",
+          "35–44 ans": "35–44",
+          "45 ans et plus": "45 und älter",
+          "Choisir un parcours": "Einen Lernweg auswählen",
+          "Choisissez d'abord un parcours": "Wählen Sie zuerst einen Lernweg",
+          "Choisir un thème ou un titre": "Thema oder Titel auswählen",
+          "Ce qui m'intéresse": "Das interessiert mich",
+          "Quel est votre objectif ?": "Was möchten Sie erreichen?",
+          "Parlez-nous un peu de vos objectifs…": "Erzählen Sie uns ein wenig über Ihre Ziele…",
+          "RETOUR À L'ACADÉMIE": "ZURÜCK ZUR AKADEMIE",
+          "EOEX ACADEMY · INSCRIPTION": "EOEX ACADEMY · ANFRAGE",
+          "Sites partenaires EOEX": "EOEX-Partnerwebsites",
+          "Portrait éditorial pour présenter EOEX Academy": "Redaktionelles Porträt zur Vorstellung der EOEX Academy",
+          "EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat.": "EOEX Academy — eine unabhängige Schule für Mode, Bildgestaltung und die Arbeit als Model."
+        }
+      };
+      let currentLocale = "fr";
+
+      try {
+        const savedLocale = window.localStorage.getItem("eoex-academy-locale");
+        if (supportedLocales.includes(savedLocale)) currentLocale = savedLocale;
+      } catch (error) {
+        console.warn("The Academy language preference could not be read:", error);
+      }
+
+      function tx(value) {
+        const englishSource = frenchToEnglish.get(value);
+        if (currentLocale === "en") return frenchOverrides.en?.[value] || englishSource || value;
+        return frenchOverrides[currentLocale]?.[value]
+          || localeDictionary[currentLocale]?.[value]
+          || localeDictionary[currentLocale]?.[englishSource]
+          || value;
+      }
+
+      function localizeStaticContent(root = document) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.parentElement?.closest("script, style, select, [data-no-translate]")) continue;
+          if (!textOriginals.has(node)) textOriginals.set(node, node.nodeValue);
+          const original = textOriginals.get(node);
+          const match = original.match(/^(\s*)([\s\S]*?)(\s*)$/);
+          node.nodeValue = `${match[1]}${tx(match[2])}${match[3]}`;
+        }
+        root.querySelectorAll?.("[aria-label], [placeholder], [title], [alt]").forEach((element) => {
+          for (const attribute of ["aria-label", "placeholder", "title", "alt"]) {
+            if (!element.hasAttribute(attribute)) continue;
+            let originals = attributeOriginals.get(element);
+            if (!originals) {
+              originals = new Map();
+              attributeOriginals.set(element, originals);
+            }
+            if (!originals.has(attribute)) originals.set(attribute, element.getAttribute(attribute));
+            element.setAttribute(attribute, tx(originals.get(attribute)));
+          }
+        });
+      }
+
+      const image = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=82`;
+      const editorialClips = [
+        "https://videos.pexels.com/video-files/10619333/10619333-uhd_2732_1440_25fps.mp4",
+        "https://videos.pexels.com/video-files/19863106/19863106-uhd_1440_2560_30fps.mp4",
+        "https://videos.pexels.com/video-files/9156345/9156345-uhd_1440_2732_25fps.mp4",
+        "https://videos.pexels.com/video-files/32210739/13738096_2560_1440_60fps.mp4",
+        "https://videos.pexels.com/video-files/7305163/7305163-uhd_2732_1440_25fps.mp4",
+        "https://videos.pexels.com/video-files/5469847/5469847-uhd_2560_1440_30fps.mp4"
+      ];
+      const entry = (title, subtitle, imageId, synopsis, detail = "A considered learning experience") => ({
+        title,
+        subtitle,
+        image: image(imageId),
+        video: editorialClips[[...title].reduce((sum, letter) => sum + letter.charCodeAt(0), 0) % editorialClips.length],
+        synopsis,
+        detail
+      });
+
+      const imageByDiscipline = (category) => {
+        const label = category.toLowerCase();
+        if (label.includes("commercial")) return "photo-1483985988355-763728e1935b";
+        if (label.includes("body-specific")) return "photo-1496747611176-843222e1e57c";
+        if (label.includes("demographic")) return "photo-1534528741775-53994a69daeb";
+        if (label.includes("performance")) return "photo-1509631179647-0177331693ae";
+        if (label.includes("digital")) return "photo-1485230895905-ec40ba36b9bc";
+        if (label.includes("style") || label.includes("subculture")) return "photo-1515886657613-9f3515b0c78f";
+        if (label.includes("engagement")) return "photo-1525507119028-ed4c629a60a3";
+        return "photo-1529139574466-a303027c1d8b";
+      };
+      const shortDiscipline = (category) => category.replace(" (often overlapping categories)", "").replace(" Modeling", "");
+      const classItems = window.EOEX_CLASS_DATA.map(({ category, number, title }) => {
+        const discipline = shortDiscipline(category);
+        return entry(
+          title,
+          `Lesson ${String(number).padStart(2, "0")} · ${discipline}`,
+          imageByDiscipline(category),
+          `Explore ${title.toLowerCase()} through guided practice, thoughtful preparation and professional context.`,
+          `${discipline.toUpperCase()} · LESSON ${String(number).padStart(2, "0")}`
+        );
+      });
+      const courseItems = window.EOEX_COURSE_DATA.map(({ category, kind, title }) => {
+        const discipline = shortDiscipline(category);
+        const pathway = kind === "pathway";
+        return entry(
+          title,
+          pathway ? "Explore the discipline" : `Specialization · ${discipline}`,
+          imageByDiscipline(category),
+          pathway
+            ? `A structured pathway through ${title.toLowerCase()}, including its specializations and professional context.`
+            : `${title} is a specialist pathway in ${discipline.toLowerCase()}. Explore its craft, preparation and professional standards.`,
+          `${discipline.toUpperCase()} · ${pathway ? "PATHWAY" : "SPECIALIZATION"}`
+        );
+      });
+
+      const catalogues = [
+        {
+          id: "showcase", title: "The Showcase", eyebrow: "A FIRST LOOK",
+          description: "A curated introduction to the ideas, craft and confidence behind a career in modeling.",
+          items: [
+            entry("The Model's Mindset", "A foundation in presence", "photo-1534528741775-53994a69daeb", "Develop the self-awareness, preparation and professional habits that support a lasting career.", "FOUNDATIONS · 4 LESSONS"),
+            entry("Runway, Reframed", "Walk with intention", "photo-1529139574466-a303027c1d8b", "Discover posture, rhythm and a confident walk that feels unmistakably your own.", "RUNWAY · 6 LESSONS"),
+            entry("Editorial Presence", "Tell a story in a frame", "photo-1524504388940-b1c1722653e1", "Explore shape, stillness and expression to build an image with meaning.", "EDITORIAL · 5 LESSONS"),
+            entry("The Casting Room", "Make a lasting first impression", "photo-1483985988355-763728e1935b", "Prepare your introduction, portfolio and point of view for a thoughtful casting.", "CAREER · 4 LESSONS"),
+            entry("Light & Line", "Work with the camera", "photo-1539109136881-3be0616acf4b", "Learn how light, lens and composition influence the way an image is read.", "IMAGE-MAKING · 5 LESSONS"),
+            entry("The Industry Edit", "Understand the landscape", "photo-1515886657613-9f3515b0c78f", "Meet the roles, relationships and rhythms that shape fashion and commercial work.", "INDUSTRY · 4 LESSONS"),
+            entry("Style in Motion", "Movement with meaning", "photo-1496747611176-843222e1e57c", "Build fluid, intentional movement for garments, campaigns and moving image.", "MOVEMENT · 5 LESSONS"),
+            entry("Portfolio, With Purpose", "Show your point of view", "photo-1525507119028-ed4c629a60a3", "Make considered choices about tests, images and the story your book tells.", "PORTFOLIO · 4 LESSONS"),
+            entry("Commercial Confidence", "Connect with an audience", "photo-1524250502761-1ac6f2e30d43", "Bring warmth, clarity and believable expression to brand and lifestyle briefs.", "COMMERCIAL · 5 LESSONS"),
+            entry("Your Rights, Your Work", "Know before you sign", "photo-1509631179647-0177331693ae", "An introduction to releases, image use and practical questions to ask before a booking.", "PROFESSIONAL PRACTICE · 4 LESSONS"),
+            entry("Digital Presence", "Create with care", "photo-1485230895905-ec40ba36b9bc", "Shape a professional online presence while protecting boundaries and personal data.", "DIGITAL · 4 LESSONS"),
+            entry("A Career, Long View", "Build beyond the moment", "photo-1485968579580-b6d095142e6e", "Set grounded goals, develop relationships and imagine a sustainable next chapter.", "CAREER · 4 LESSONS")
+          ]
+        },
+        {
+          id: "class", title: "Classes", eyebrow: "THE PRACTICE",
+          description: "Focused lessons for the details that make a difference—from a first casting to the final look.",
+          paginate: true,
+          items: classItems
+        },
+        {
+          id: "course", title: "Courses", eyebrow: "THE DISCIPLINES",
+          description: "Structured pathways across the modeling landscape, designed to help you find and refine your place in it.",
+          paginate: true,
+          items: courseItems
+        },
+        {
+          id: "masterclass", title: "Masterclasses", eyebrow: "LEARN IN GOOD COMPANY",
+          description: "A series of city-led intensives for craft, connection and a closer view of the fashion calendar.",
+          items: [
+            entry("Paris", "Fashion Week preparation", "photo-1502602898657-3e91760cbb34", "Prepare for Paris with runway practice, casting readiness and a deeper understanding of the fashion calendar.", "PARIS · INTENSIVE"),
+            entry("Bruxelles", "A new creative perspective", "photo-1499856871958-5b9627545d1a", "A focused city workshop in editorial presence, preparation and professional connection.", "BRUXELLES · INTENSIVE"),
+            entry("Bordeaux", "Craft and character", "photo-1470071459604-3b5ec3a7fe05", "Build expressive image-making skills in a considered, small-group setting.", "BORDEAUX · INTENSIVE"),
+            entry("Lyon", "The image in motion", "photo-1523906834658-6e24ef2386f9", "Explore movement, styling and camera awareness through guided creative practice.", "LYON · INTENSIVE"),
+            entry("London", "Fashion Week preparation", "photo-1513635269975-59663e0ac1ad", "Get ready for the pace of London through casting preparation and runway sessions.", "LONDON · INTENSIVE"),
+            entry("Barcelona", "Presence, under the sun", "photo-1539037116277-4db20889f2d4", "Develop a distinctive point of view with editorial and commercial practice.", "BARCELONA · INTENSIVE"),
+            entry("Lausanne", "A quieter kind of confidence", "photo-1527668752968-14dc70a27c95", "A personal, supportive intensive focused on foundations and next steps.", "LAUSANNE · INTENSIVE"),
+            entry("Milan", "Fashion Week preparation", "photo-1513584684374-8bab748fbf90", "Prepare for Milan with a practical focus on show etiquette, fittings and the runway.", "MILAN · INTENSIVE"),
+            entry("Berlin", "Find your visual language", "photo-1560969184-10fe8719e047", "Experiment with movement and image-making in a city shaped by new perspectives.", "BERLIN · INTENSIVE"),
+            entry("New York City", "Fashion Week preparation", "photo-1496442226666-8d4d0e62e6e9", "Build a clear plan for castings, presentation and the energy of New York Fashion Week.", "NEW YORK · INTENSIVE"),
+            entry("Madrid", "A confident introduction", "photo-1531218150217-54595bc2b934", "Refine your introduction, portfolio and camera presence with practical coaching.", "MADRID · INTENSIVE"),
+            entry("Rome", "An eye for the enduring", "photo-1515542622106-78bda8ba0e5b", "Explore elegant movement, visual storytelling and a thoughtful approach to the image.", "ROME · INTENSIVE")
+          ]
+        },
+        {
+          id: "private", title: "Private Tuition", eyebrow: "ONE-TO-ONE",
+          description: "Personal coaching, paced around your goals, experience and the work you want to pursue.",
+          paginate: true,
+          items: [
+            entry("Runway Coaching", "A walk that feels like yours", "photo-1529139574466-a303027c1d8b", "Individual feedback on alignment, pace, turns and the details of your runway presence.", "PRIVATE · 1:1"),
+            entry("Portfolio Review", "A clearer point of view", "photo-1524504388940-b1c1722653e1", "Review your images and plan a purposeful next step for your book.", "PRIVATE · 1:1"),
+            entry("Casting Preparation", "Walk in ready", "photo-1483985988355-763728e1935b", "Practise your introduction, casting presentation and the questions you want to ask.", "PRIVATE · 1:1"),
+            entry("Editorial Posing", "Find the line", "photo-1539109136881-3be0616acf4b", "One-to-one work on shape, expression and reading a creative brief.", "PRIVATE · 1:1"),
+            entry("Camera Confidence", "Presence in the frame", "photo-1534528741775-53994a69daeb", "Build a comfortable relationship with the lens through guided exercises.", "PRIVATE · 1:1"),
+            entry("Commercial Coaching", "Connect with the brief", "photo-1524250502761-1ac6f2e30d43", "Develop natural expression and believable product interaction for commercial work.", "PRIVATE · 1:1"),
+            entry("Digital Profile Review", "Show up with intention", "photo-1485230895905-ec40ba36b9bc", "Review your professional presence and identify practical opportunities to refine it.", "PRIVATE · 1:1"),
+            entry("Career Direction", "Map your next steps", "photo-1485968579580-b6d095142e6e", "Discuss your ambitions, strengths and a grounded plan for moving forward.", "PRIVATE · 1:1"),
+            entry("Modeling for Beginners", "Start with the essentials", "photo-1496747611176-843222e1e57c", "A supportive introduction to the industry, preparation and professional expectations.", "PRIVATE · 1:1"),
+            entry("Self-tape & Walk Video", "Make a considered submission", "photo-1515886657613-9f3515b0c78f", "Practise clear framing, a confident walk video and a polished self-tape.", "PRIVATE · 1:1"),
+            entry("Contract Conversation", "Know what to ask", "photo-1525507119028-ed4c629a60a3", "Talk through common contract terms and prepare questions for a qualified adviser.", "PRIVATE · 1:1"),
+            entry("Image Rights & AI", "Protect your likeness", "photo-1509631179647-0177331693ae", "Explore image permissions and practical questions about AI and digital replicas.", "PRIVATE · 1:1"),
+            entry("Fitting & Showroom", "Move with the garment", "photo-1529139574466-a303027c1d8b", "Prepare for fittings, buyer presentations and clear garment feedback.", "PRIVATE · 1:1"),
+            entry("Commercial Expression", "Warmth, with precision", "photo-1524250502761-1ac6f2e30d43", "Practise expressive range and consistency for lifestyle campaigns.", "PRIVATE · 1:1"),
+            entry("Agency Meeting Prep", "Choose with confidence", "photo-1483985988355-763728e1935b", "Prepare for agency conversations and learn how to assess a potential partnership.", "PRIVATE · 1:1"),
+            entry("Movement for Camera", "Make every gesture count", "photo-1496747611176-843222e1e57c", "Build expressive movement for video, campaign and editorial work.", "PRIVATE · 1:1"),
+            entry("Personal Brand Session", "Your story, thoughtfully told", "photo-1515372039744-b8f02a3ae446", "Clarify your strengths and express your point of view with purpose.", "PRIVATE · 1:1"),
+            entry("On-set Boundaries", "Work with confidence", "photo-1534528741775-53994a69daeb", "Prepare language and practical strategies for communicating boundaries on set.", "PRIVATE · 1:1"),
+            entry("Plus-size Career Coaching", "Plan for your market", "photo-1496747611176-843222e1e57c", "Explore portfolio choices and opportunities across curve and commercial modeling.", "PRIVATE · 1:1"),
+            entry("Mature Modeling Coaching", "Experience in focus", "photo-1524504388940-b1c1722653e1", "Develop a considered approach to representing your experience and strengths.", "PRIVATE · 1:1"),
+            entry("Creator & UGC Coaching", "Create authentic work", "photo-1485230895905-ec40ba36b9bc", "Plan a professional creator workflow, brief response and clear usage conversation.", "PRIVATE · 1:1"),
+            entry("Financial Foundations", "Make the numbers clearer", "photo-1525507119028-ed4c629a60a3", "Build confidence with rates, invoices and simple habits for irregular income.", "PRIVATE · 1:1"),
+            entry("Resilience Session", "A steadier way forward", "photo-1470071459604-3b5ec3a7fe05", "Reflect on goals and develop supportive routines for a demanding creative career.", "PRIVATE · 1:1"),
+            entry("Custom Learning Plan", "Built around your ambition", "photo-1502602898657-3e91760cbb34", "Shape a personal session around the skills, questions and next steps that matter to you.", "PRIVATE · 1:1")
+          ]
+        },
+        {
+          id: "library", title: "The Library", eyebrow: "READ · REFLECT · RETURN",
+          description: "A growing collection of field guides and thoughtful reads for your practice and professional life.",
+          paginate: true,
+          items: [
+            entry("The Model's Field Guide", "Foundations for a changing industry", "photo-1544947950-fa07a98d237f", "A clear introduction to roles, relationships and the rhythms of the modeling industry.", "FIELD GUIDE · 01"),
+            entry("The Runway Handbook", "Posture, pace and presence", "photo-1519682337058-a94d519337bc", "A practical reference for runway movement, preparation and show etiquette.", "PRACTICE · 02"),
+            entry("The Editorial Eye", "Image, gesture, story", "photo-1543002588-bfa74002ed7e", "Explore the creative language behind editorials and collaborative image-making.", "IMAGE-MAKING · 03"),
+            entry("Your First Portfolio", "Build with intention", "photo-1513475382585-d06e58bcb0e0", "Thoughtful guidance on test shoots, image selection and a portfolio with purpose.", "CAREER · 04"),
+            entry("A Guide to Castings", "Prepare and be present", "photo-1544716278-ca5e3f4abd8c", "Prepare your introduction, presentation and questions for castings and go-sees.", "CAREER · 05"),
+            entry("Contracts in Plain English", "The terms worth knowing", "photo-1541961017774-22349e4a1262", "An accessible overview of common agreements and the questions to raise.", "PROFESSIONAL PRACTICE · 06"),
+            entry("Image Rights & Releases", "Your image, your say", "photo-1517841905240-472988babdf9", "Understand releases, usage, likeness permissions and the foundations of consent.", "PROFESSIONAL PRACTICE · 07"),
+            entry("On-set Safety & Boundaries", "A working guide", "photo-1519682337058-a94d519337bc", "Practical prompts for preparation, boundaries, travel and raising concerns.", "WELLBEING · 08"),
+            entry("The Independent Model", "Freelance with a plan", "photo-1544716278-ca5e3f4abd8c", "Build practical habits around rates, invoices, expenses and career sustainability.", "CAREER · 09"),
+            entry("Digital Presence", "Visibility with intention", "photo-1543002588-bfa74002ed7e", "Make thoughtful choices about social media, personal boundaries and digital hygiene.", "DIGITAL · 10"),
+            entry("AI, Identity & Image", "A new set of questions", "photo-1544947950-fa07a98d237f", "Consider digital replicas, AI clauses, likeness licensing and informed consent.", "DIGITAL · 11"),
+            entry("The Creative Team", "Who makes the image", "photo-1513475382585-d06e58bcb0e0", "Meet the collaborators behind a production and learn how to work together well.", "ON SET · 12"),
+            entry("Runway & Editorial History", "A cultural perspective", "photo-1541961017774-22349e4a1262", "A concise reader on the history and cultural function of fashion imagery.", "PERSPECTIVE · 13"),
+            entry("Commercial Modeling", "Work across the brief", "photo-1517841905240-472988babdf9", "Explore lifestyle, e-commerce, catalog and product-led modeling.", "PRACTICE · 14"),
+            entry("Fit Modeling Notes", "The details that help design", "photo-1544947950-fa07a98d237f", "A practical guide to measurements, sample sizes and useful fit feedback.", "PRACTICE · 15"),
+            entry("Inclusive Casting", "Representation in practice", "photo-1544716278-ca5e3f4abd8c", "Read about evolving representation and respectful, inclusive casting practices.", "PERSPECTIVE · 16"),
+            entry("Creator Work & UGC", "Make the brief your own", "photo-1543002588-bfa74002ed7e", "Explore creator collaborations, deliverables and image-use conversations.", "DIGITAL · 17"),
+            entry("Preparing for Fashion Week", "A useful checklist", "photo-1519682337058-a94d519337bc", "Plan your schedule, documents, travel and recovery around a demanding show week.", "FIELD GUIDE · 18"),
+            entry("Wellbeing on the Job", "Care as a career skill", "photo-1513475382585-d06e58bcb0e0", "Grounded reflections on resilience, health and sustainable creative work.", "WELLBEING · 19"),
+            entry("Portfolio Scam Signals", "Protect your investment", "photo-1541961017774-22349e4a1262", "Recognize pressure, unverifiable claims and common portfolio scam tactics.", "PROFESSIONAL PRACTICE · 20"),
+            entry("Image Use & Buyouts", "Read beyond the day rate", "photo-1543002588-bfa74002ed7e", "A compact guide to usage, territory, duration, renewals and buyout terms.", "PROFESSIONAL PRACTICE · 21"),
+            entry("A Long-view Career", "Plan beyond the next booking", "photo-1544947950-fa07a98d237f", "Reflect on goals, transferable strengths and the many forms a creative career can take.", "CAREER · 22"),
+            entry("Agency Relationships", "Find a good fit", "photo-1517841905240-472988babdf9", "Understand representation, communication, commission and professional expectations.", "CAREER · 23"),
+            entry("The Model's Notebook", "Prompts for your practice", "photo-1544716278-ca5e3f4abd8c", "A guided set of reflections to help you notice progress and choose a next step.", "REFLECTION · 24")
+          ]
+        }
+      ];
+
+      const catalogueRoot = document.querySelector("#catalogue");
+      const pageBySection = new Map();
+      const pageRenderers = new Map();
+      const symbolBySection = { showcase: "✦", class: "♧", course: "◇", masterclass: "✧", private: "✦", library: "❧" };
+      const videoObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+              if (!video.src) {
+                video.src = video.dataset.videoSrc;
+                video.load();
+              }
+              video.play().catch((error) => {
+                if (error.name !== "AbortError") console.warn("Academy preview could not autoplay:", error);
+              });
+            } else {
+              video.pause();
+            }
+          });
+        }, { rootMargin: "120px 0px" })
+        : null;
+
+      function cardMarkup(item, sectionId, index) {
+        const cardId = `${sectionId}-card-${index}`;
+        const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        })[character]);
+        const title = escapeHTML(tx(item.title));
+        const subtitle = escapeHTML(tx(item.subtitle));
+        const synopsis = escapeHTML(tx(item.synopsis));
+        const detail = escapeHTML(tx(item.detail));
+        const poster = escapeHTML(item.image);
+        const videoSource = escapeHTML(item.video);
+        const video = sectionId === "library" ? "" : `
+          <video class="cover-video" autoplay muted loop playsinline preload="none" poster="${poster}" data-video-src="${videoSource}" aria-hidden="true"></video>`;
+        return `
+          <article class="catalog-card">
+            <div class="card-stage" data-card="${cardId}">
+              <div class="card-inner">
+                <div class="card-face card-front" aria-hidden="false">
+                  <img class="cover-image" src="${poster}" alt="" loading="lazy" decoding="async">
+                  ${video}
+                  <div class="cover-shade"></div><div class="cover-frame"></div>
+                  <div class="cover-meta"><span class="cover-brand">EOEX ACADEMY</span><span class="cover-mark" aria-hidden="true">${symbolBySection[sectionId]}</span></div>
+                  <div class="cover-copy"><span class="cover-category">${item.detail.split(" · ")[0]}</span><h3>${title}</h3><p>${subtitle}</p></div>
+                  <div class="cover-credit"><span>BY EOEX</span><span>${String(index + 1).padStart(2, "0")}</span></div>
+                  <button class="flip-hint" type="button" aria-label="${escapeHTML(tx("Turn over " + item.title))}" aria-controls="${cardId}-back">${escapeHTML(tx("Discover").toUpperCase())} ↗</button>
+                </div>
+                <div class="card-face card-back" id="${cardId}-back" aria-hidden="true">
+                  <div class="back-content">
+                    <span class="back-symbol" aria-hidden="true">${symbolBySection[sectionId]}</span>
+                    <p class="back-label">EOEX ACADEMY · ${escapeHTML(tx(sectionId.toUpperCase()))}</p>
+                    <h3>${title}</h3><div class="back-rule"></div>
+                    <p>${synopsis}</p><p class="back-meta">${detail}</p>
+                    <div class="back-actions">
+                      <button class="button button-light flip-back" type="button" aria-label="${escapeHTML(tx("Return to " + item.title + " cover"))}">${escapeHTML(tx("Cover").toUpperCase())}</button>
+                      <a class="button register-item" href="#register" data-section="${sectionId}" data-item="${escapeHTML(item.title)}">${escapeHTML(tx("Enquire").toUpperCase())}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-caption"><p>${subtitle}</p></div>
+          </article>`;
+      }
+
+      function renderSection(section) {
+        const root = document.createElement("section");
+        root.className = "catalog-section";
+        root.id = section.id;
+        root.setAttribute("aria-labelledby", `${section.id}-title`);
+        const hasPages = Boolean(section.paginate);
+        root.innerHTML = `
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">${tx(section.eyebrow)}</span>
+              <h2 id="${section.id}-title">${tx(section.title)}</h2>
+              <p class="section-description">${tx(section.description)}</p>
+            </div>
+            ${hasPages ? `<div class="section-tools">
+              <span class="page-count" aria-live="polite"><strong data-page-current>01</strong> / <span data-page-total>02</span></span>
+              <div class="shelf-controls" aria-label="${tx(section.title + " pages")}">
+                <button type="button" data-page-prev aria-label="${tx("Previous " + section.title + " items")}" disabled>←</button>
+                <button type="button" data-page-next aria-label="${tx("Next " + section.title + " items")}">→</button>
+              </div>
+            </div>` : ""}
+          </div>
+          <div class="card-grid" data-grid="${section.id}" aria-live="polite"></div>`;
+        catalogueRoot.append(root);
+
+        const grid = root.querySelector(".card-grid");
+        const pageSize = 12;
+        const pageTotal = Math.max(1, Math.ceil(section.items.length / pageSize));
+        let page = 0;
+        const renderPage = () => {
+          const start = page * pageSize;
+          const current = section.items.slice(start, start + pageSize);
+          if (videoObserver) grid.querySelectorAll(".cover-video").forEach((video) => videoObserver.unobserve(video));
+          grid.innerHTML = current.map((item, i) => cardMarkup(item, section.id, start + i)).join("");
+          const videos = grid.querySelectorAll(".cover-video");
+          videos.forEach((video) => {
+            video.addEventListener("playing", () => video.classList.add("is-playing"), { once: true });
+            video.addEventListener("error", () => console.error("Academy preview video failed to load:", video.dataset.videoSrc), { once: true });
+            if (videoObserver) videoObserver.observe(video);
+            else {
+              video.src = video.dataset.videoSrc;
+              video.play().catch((error) => {
+                if (error.name !== "AbortError") console.warn("Academy preview could not autoplay:", error);
+              });
+            }
+          });
+          grid.querySelectorAll(".card-stage").forEach((stage) => {
+            stage.addEventListener("pointerenter", (event) => {
+              if (event.pointerType === "mouse" && !stage.dataset.pinned) {
+                setCardFace(stage.querySelector(".flip-hint"), true);
+              }
+            });
+            stage.addEventListener("pointerleave", (event) => {
+              if (event.pointerType === "mouse" && !stage.dataset.pinned) {
+                setCardFace(stage.querySelector(".flip-hint"), false);
+              }
+            });
+          });
+          if (hasPages) {
+            root.querySelector("[data-page-current]").textContent = String(page + 1).padStart(2, "0");
+            root.querySelector("[data-page-total]").textContent = String(pageTotal).padStart(2, "0");
+            root.querySelector("[data-page-prev]").disabled = page === 0;
+            root.querySelector("[data-page-next]").disabled = page >= pageTotal - 1;
+          }
+          pageBySection.set(section.id, { page, pageTotal, section });
+        };
+        pageRenderers.set(section.id, renderPage);
+        renderPage();
+        if (hasPages) {
+          root.querySelector("[data-page-prev]").addEventListener("click", () => {
+            if (page > 0) { page -= 1; renderPage(); }
+          });
+          root.querySelector("[data-page-next]").addEventListener("click", () => {
+            if (page < pageTotal - 1) { page += 1; renderPage(); }
+          });
+        }
+        return root;
+      }
+
+      catalogues.forEach(renderSection);
+
+      function setCardFace(button, showBack, pinFace = false) {
+        const stage = button.closest(".card-stage");
+        if (!stage) return;
+        stage.classList.toggle("is-flipped", showBack);
+        stage.querySelector(".card-front").setAttribute("aria-hidden", String(showBack));
+        stage.querySelector(".card-back").setAttribute("aria-hidden", String(!showBack));
+        if (pinFace) stage.dataset.pinned = "true";
+        else if (!showBack) delete stage.dataset.pinned;
+      }
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        if (target.matches(".flip-hint")) {
+          event.preventDefault();
+          setCardFace(target, true, true);
+          target.closest(".card-stage")?.querySelector(".flip-back")?.focus();
+        } else if (target.matches(".flip-back")) {
+          event.preventDefault();
+          setCardFace(target, false);
+          const stage = target.closest(".card-stage");
+          stage?.querySelector(".flip-hint")?.focus();
+        } else if (target.matches(".register-item")) {
+          const link = target;
+          const section = link.dataset.section || "";
+          const item = link.dataset.item || "";
+          event.preventDefault();
+          window.location.hash = `register?section=${encodeURIComponent(section)}&item=${encodeURIComponent(item)}`;
+        }
+      });
+
+      const homeView = document.querySelector("#home-view");
+      const registrationView = document.querySelector("#registration-view");
+      const mainNav = document.querySelector("#main-nav");
+      const menuToggle = document.querySelector("#menu-toggle");
+      const registrationForm = document.querySelector("#registration-form");
+      const pathwaySelect = document.querySelector("#pathway");
+      const selectionSelect = document.querySelector("#selection");
+      const ageRangeSelect = document.querySelector("#age-range");
+      const formResult = document.querySelector("#form-result");
+      const ageRangeOptions = [
+        ["Choisir une tranche d'âge", ""],
+        ["Moins de 18 ans", "under-18"],
+        ["18–24 ans", "18-24"],
+        ["25–34 ans", "25-34"],
+        ["35–44 ans", "35-44"],
+        ["45 ans et plus", "45-plus"]
+      ];
+
+      function updatePathwayOptions(selectedValue = "") {
+        pathwaySelect.replaceChildren(new Option(tx("Choisir un parcours"), ""));
+        catalogues.forEach((section) => pathwaySelect.add(new Option(tx(section.title), section.id)));
+        pathwaySelect.value = selectedValue;
+      }
+
+      function updateAgeRangeOptions(selectedValue = "") {
+        ageRangeSelect.replaceChildren(...ageRangeOptions.map(([label, value]) => new Option(tx(label), value)));
+        ageRangeSelect.value = selectedValue;
+      }
+
+      function updateSelections(pathway, preferredValue = "") {
+        const section = catalogues.find((catalogue) => catalogue.id === pathway);
+        selectionSelect.replaceChildren();
+        if (!section) {
+          selectionSelect.disabled = true;
+          selectionSelect.add(new Option(tx("Choisissez d'abord un parcours"), ""));
+          return;
+        }
+        selectionSelect.disabled = false;
+        selectionSelect.add(new Option(tx("Choisir un thème ou un titre"), ""));
+        section.items.forEach((item) => selectionSelect.add(new Option(tx(item.title), item.title)));
+        if (preferredValue && section.items.some((item) => item.title === preferredValue)) {
+          selectionSelect.value = preferredValue;
+        }
+      }
+      pathwaySelect.addEventListener("change", () => updateSelections(pathwaySelect.value));
+
+      function applyLanguage(locale, persist = true) {
+        if (!supportedLocales.includes(locale)) return;
+        currentLocale = locale;
+        document.documentElement.lang = locale;
+        localeSelect.value = locale;
+
+        for (const section of catalogues) {
+          const root = document.querySelector(`#${section.id}`);
+          if (!root) continue;
+          root.querySelector(".section-heading .eyebrow").textContent = tx(section.eyebrow);
+          root.querySelector(`#${section.id}-title`).textContent = tx(section.title);
+          root.querySelector(".section-description").textContent = tx(section.description);
+          pageRenderers.get(section.id)?.();
+        }
+
+        updatePathwayOptions(pathwaySelect.value);
+        updateAgeRangeOptions(ageRangeSelect.value);
+        updateSelections(pathwaySelect.value, selectionSelect.value);
+        localizeStaticContent();
+        document.title = tx("EOEX Academy — L'art de devenir");
+        document.querySelector('meta[name="description"]').content = tx(
+          "EOEX Academy — une école indépendante dédiée à la mode, à l'image et aux métiers du mannequinat."
+        );
+        languageStatus.textContent = tx({
+          fr: "French selected",
+          en: "English selected",
+          es: "Spanish selected",
+          it: "Italian selected",
+          pt: "Portuguese selected",
+          de: "German selected"
+        }[locale]);
+
+        if (persist) {
+          try {
+            window.localStorage.setItem("eoex-academy-locale", locale);
+          } catch (error) {
+            console.warn("The Academy language preference could not be saved:", error);
+          }
+        }
+      }
+
+      localeSelect.addEventListener("change", () => applyLanguage(localeSelect.value));
+      applyLanguage(currentLocale, false);
+
+      function updateRoute() {
+        const hash = window.location.hash || "#top";
+        const registration = hash.startsWith("#register");
+        homeView.hidden = registration;
+        registrationView.hidden = !registration;
+        document.querySelector("#footer").hidden = registration;
+        mainNav.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", tx("Open navigation"));
+        if (registration) {
+          formResult.textContent = "";
+          const query = hash.includes("?") ? new URLSearchParams(hash.slice(hash.indexOf("?") + 1)) : new URLSearchParams();
+          const section = query.get("section") || "";
+          const item = query.get("item") || "";
+          if (section && catalogues.some((catalogue) => catalogue.id === section)) {
+            pathwaySelect.value = section;
+            updateSelections(section, item);
+          } else {
+            pathwaySelect.value = "";
+            updateSelections("");
+          }
+          window.scrollTo(0, 0);
+          window.setTimeout(() => document.querySelector("#full-name").focus({ preventScroll: true }), 0);
+        } else if (hash === "#top" || hash === "#") {
+          window.scrollTo(0, 0);
+        }
+      }
+      window.addEventListener("hashchange", updateRoute);
+      updateRoute();
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", tx(isOpen ? "Close navigation" : "Open navigation"));
+      });
+      mainNav.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLAnchorElement) {
+          mainNav.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", tx("Open navigation"));
+        }
+      });
+
+      registrationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!registrationForm.reportValidity()) return;
+        formResult.textContent = tx("Your enquiry is ready. This preview is not connected to a registration service, so your details have not been sent.");
+      });
+      document.querySelector("#year").textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
