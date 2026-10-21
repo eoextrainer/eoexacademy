@@ -10,6 +10,11 @@ A responsive, zero-dependency single-page Academy catalogue. Open `index.html` d
 - The registration enquiry is a separate in-app view. A selected pathway and card are carried through from an enquiry button.
 - French is the first-visit language. A compact, mobile-friendly selector switches the interface and full catalogue to English, Spanish, Italian, Portuguese or German; a saved preference is restored on return.
 - The footer links to EOEX Agency, CARTESIENES and EOEX Publishing.
+- GitHub Actions deploys the static site to GitHub Pages on pushes to `main`.
+
+## Deployment
+
+GitHub Pages must be enabled with **GitHub Actions** as its build and deployment source in the repository's Pages settings. Once enabled, the workflow in `.github/workflows/deploy-pages.yml` publishes the site after each push to `main` or a manual workflow run.
 
 ## Content and media
 
